@@ -14,33 +14,33 @@ public class Application {
 		Scanner sc = new Scanner(System.in);
 		
 		try {
-		System.out.println("Enter account data");
-		System.out.print("Number: ");
-		Integer number = sc.nextInt();
-		System.out.print("Holder: ");
-		sc.nextLine();
-		String holder = sc.nextLine();
-		System.out.print("Initial balance: ");
-		Double balance = sc.nextDouble();
-		System.out.print("Withdraw limit: ");
-		Double withdrawLimit = sc.nextDouble();
-		Account acc = new Account(number, holder, balance, withdrawLimit);
-		
-		System.out.println();
-		System.out.print("Are you going to make a withdrawal or a deposit(w/d)?");
-		char ch = sc.next().charAt(0);
-		if (ch == 'w') {
-		System.out.print("Enter amount for withdraw: ");
-		Double amount = sc.nextDouble();
-		acc.withdraw(amount);
-		}
-		else if(ch == 'd') {
-			System.out.print("Enter amount for deposit: ");
+			System.out.println("Enter account data");
+			System.out.print("Number: ");
+			Integer number = sc.nextInt();
+			System.out.print("Holder: ");
+			sc.nextLine();
+			String holder = sc.nextLine();
+			System.out.print("Initial balance: ");
+			Double balance = sc.nextDouble();
+			System.out.print("Withdraw limit: ");
+			Double withdrawLimit = sc.nextDouble();
+			Account acc = new Account(number, holder, balance, withdrawLimit);
+			
+			System.out.println();
+			System.out.print("Are you going to make a withdrawal or a deposit(w/d)?");
+			char ch = sc.next().charAt(0);
+			if (ch == 'w') {
+			System.out.print("Enter amount for withdraw: ");
 			Double amount = sc.nextDouble();
-			acc.deposit(amount);	
-		}
-		System.out.println("New balance: " + acc);
-        sc.close();
+			acc.withdraw(amount);
+			}
+			else if(ch == 'd') {
+				System.out.print("Enter amount for deposit: ");
+				Double amount = sc.nextDouble();
+				acc.deposit(amount);	
+			}
+			System.out.println("New balance: " + acc);
+	        sc.close();
 		}
 		catch(InputMismatchException e){
 			System.out.println("Invalid characters!");
